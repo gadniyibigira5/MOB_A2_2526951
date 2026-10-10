@@ -4,6 +4,7 @@ export type TabParamList = {
   Home: undefined;
   Skills: undefined;
   Projects: undefined;
+  Photography: undefined;
   Profile: undefined;
   About: undefined;
 };
