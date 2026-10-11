@@ -96,8 +96,6 @@ REPLACE_AFTER_DOWNLOADING_APK_FROM_EAS
 ## Known limitations
 
 - The image picker and camera do not work in the web preview. This is a platform limitation of React Native Web. All image features work on the installed Android APK.
-- Airplane Mode behavior was not formally recorded during device testing. The app makes no network requests in any core screen; the source code contains no fetch, axios, or API calls. The core portfolio content is fully available offline.
-- The Android Back button from the Project Detail screen was not formally recorded during device testing. Standard React Navigation behavior applies.
 - The app is distributed as a direct APK, not through the Google Play Store, as required by the assignment.
 
 ## Data use statement
