@@ -83,7 +83,7 @@ MOB_A2_2526951/
 
 ## Final commit hash
 
-[REPLACE_AT_THE_VERY_END_SEE_BELOW]
+c328348
 
 ## Release link
 
