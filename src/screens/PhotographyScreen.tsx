@@ -43,13 +43,11 @@ export default function PhotographyScreen() {
   );
 
   const screenWidth = Dimensions.get('window').width;
-  // approximate content width: screen - Screen component padding (16 each side) - one gutter
   const contentWidth = Math.max(220, screenWidth - spacing.lg * 2);
   const columnWidth = (contentWidth - GUTTER) / 2;
 
   const visible = filter === 'All' ? photos : photos.filter((p) => p.category === filter);
 
-  // Split into two columns by alternating (simple masonry that keeps order)
   const columns = useMemo(() => {
     const left: Photo[] = [];
     const right: Photo[] = [];
@@ -97,29 +95,11 @@ export default function PhotographyScreen() {
     await persist(next);
   };
 
-  const promptNewCategory = () => {
-    Alert.prompt?.(
-      'New category',
-      'Give this category a short name.',
-      async (text?: string) => {
-        const name = (text ?? '').trim();
-        if (name.length < 2) return;
-        if (categories.includes(name)) return;
-        const next = [...categories, name];
-        setCategories(next);
-        await saveCategories(next);
-      },
-      'plain-text'
-    );
-    // Note: Alert.prompt is iOS-only. On Android/web we rely on the fallback below.
-  };
-
-  const addCategoryFallback = async (name: string) => {
-    const trimmed = name.trim();
-    if (trimmed.length < 2 || categories.includes(trimmed)) return;
-    const next = [...categories, trimmed];
-    setCategories(next);
-    await saveCategories(next);
+  const confirmDelete = (photo: Photo) => {
+    Alert.alert('Remove photo', `Remove "${photo.title}"?`, [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Remove', style: 'destructive', onPress: () => handleDelete(photo.id) },
+    ]);
   };
 
   return (
@@ -209,13 +189,6 @@ export default function PhotographyScreen() {
       <PhotoDetailSheet photo={detail} onClose={() => setDetail(null)} onDelete={handleDelete} />
     </Screen>
   );
-
-  function confirmDelete(photo: Photo) {
-    Alert.alert('Remove photo', `Remove "${photo.title}"?`, [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'Remove', style: 'destructive', onPress: () => handleDelete(photo.id) },
-    ]);
-  }
 }
 
 const styles = StyleSheet.create({
@@ -242,7 +215,7 @@ const styles = StyleSheet.create({
   chipActive: { backgroundColor: colors.ember, borderColor: colors.ember },
   chipText: { fontFamily: fonts.uiMedium, color: colors.textOnInk, fontSize: 12 },
   chipTextActive: { color: '#FFFFFF', fontWeight: '700' },
-  gridContent: { paddingHorizontal: spacing.lg, paddingBottom: spacing.xxl },
+  gridContent: { paddingHorizontal: spacing.lg, paddingBottom: spacing.xxl * 2 },
   masonry: { flexDirection: 'row', gap: GUTTER },
   column: { flex: 1, gap: GUTTER },
   empty: { padding: spacing.xl, alignItems: 'center' },

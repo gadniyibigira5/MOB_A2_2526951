@@ -14,6 +14,7 @@ import {
   Availability,
   DEFAULT_PROFILE,
   EditableProfile,
+  STUDENT,
 } from '../data/profile';
 import { loadProfile, persistImage, deleteImage, saveProfile, resetProfile } from '../storage/profileStorage';
 
@@ -257,6 +258,42 @@ export default function ProfileEditorScreen() {
       <PrimaryButton label="Reset profile" onPress={onReset} variant="danger" />
 
       {!loaded ? <Text style={styles.counter}>Loading saved profile…</Text> : null}
+
+      <View style={{ height: spacing.xl }} />
+
+      <Section title="About this app">
+        <Card>
+          <View style={styles.aboutRow}>
+            <Text style={styles.aboutLabel}>App name</Text>
+            <Text style={styles.aboutValue}>{STUDENT.appName}</Text>
+          </View>
+          <View style={styles.aboutRow}>
+            <Text style={styles.aboutLabel}>Full name</Text>
+            <Text style={styles.aboutValue}>{STUDENT.fullName}</Text>
+          </View>
+          <View style={styles.aboutRow}>
+            <Text style={styles.aboutLabel}>Registration number</Text>
+            <Text style={styles.aboutValue}>{STUDENT.registrationNumber}</Text>
+          </View>
+          <View style={styles.aboutRow}>
+            <Text style={styles.aboutLabel}>Version</Text>
+            <Text style={styles.aboutValue}>{STUDENT.appVersion}</Text>
+          </View>
+        </Card>
+
+        <Card>
+          <Text style={styles.codeLabel}>Verification code</Text>
+          <Text style={styles.codeText}>{STUDENT.verificationCode}</Text>
+        </Card>
+
+        <Card>
+          <Text style={typography.bodyMuted}>
+            {STUDENT.appName} stores your profile text, skills, and photos only on this device. Nothing is uploaded
+            to a server. Removing a photo, skill, or profile image deletes that data from this device. The app works
+            offline; no network connection is required.
+          </Text>
+        </Card>
+      </Section>
     </Screen>
   );
 }
@@ -285,10 +322,32 @@ const styles = StyleSheet.create({
   availChipActive: {
     backgroundColor: colors.emberSoft,
     borderColor: colors.ember,
-    color: colors.emberDark,
+    color: colors.moss,
     fontWeight: '700',
   },
   status: { textAlign: 'center', marginBottom: spacing.sm, fontWeight: '600' },
   statusOk: { color: colors.success },
   statusInfo: { color: colors.warning },
+  aboutRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: spacing.xs,
+    gap: spacing.md,
+  },
+  aboutLabel: { ...typography.bodyMuted, flex: 1 },
+  aboutValue: { ...typography.body, flex: 1.2, textAlign: 'right', fontWeight: '600' },
+  codeLabel: {
+    ...typography.caption,
+    color: colors.textMuted,
+    letterSpacing: 1,
+    textAlign: 'center',
+  },
+  codeText: {
+    fontSize: 22,
+    fontWeight: '800',
+    letterSpacing: 3,
+    color: colors.text,
+    textAlign: 'center',
+    marginTop: spacing.xs,
+  },
 });

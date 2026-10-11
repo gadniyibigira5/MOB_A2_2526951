@@ -9,7 +9,6 @@ import SkillsScreen from '../screens/SkillsScreen';
 import ProjectsScreen from '../screens/ProjectsScreen';
 import PhotographyScreen from '../screens/PhotographyScreen';
 import ProfileEditorScreen from '../screens/ProfileEditorScreen';
-import AboutScreen from '../screens/AboutScreen';
 import ProjectDetailScreen from '../screens/ProjectDetailScreen';
 import { RootStackParamList, TabParamList } from './types';
 import { colors } from '../theme/colors';
@@ -29,8 +28,6 @@ const iconFor = (name: keyof TabParamList, focused: boolean): keyof typeof Ionic
       return focused ? 'camera' : 'camera-outline';
     case 'Profile':
       return focused ? 'person-circle' : 'person-circle-outline';
-    case 'About':
-      return focused ? 'information-circle' : 'information-circle-outline';
   }
 };
 
@@ -52,8 +49,7 @@ function Tabs() {
       <Tab.Screen name="Skills" component={SkillsScreen} />
       <Tab.Screen name="Projects" component={ProjectsScreen} />
       <Tab.Screen name="Photography" component={PhotographyScreen} />
-      <Tab.Screen name="Profile" component={ProfileEditorScreen} options={{ title: 'Profile' }} />
-      <Tab.Screen name="About" component={AboutScreen} />
+      <Tab.Screen name="Profile" component={ProfileEditorScreen} />
     </Tab.Navigator>
   );
 }

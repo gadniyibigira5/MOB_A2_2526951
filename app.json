@@ -8,19 +8,15 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0F172A"
+      "backgroundColor": "#0E0E10"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "android": {
       "package": "rw.ac.ines.a2526951.gadportfolio",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#0F172A"
+        "backgroundColor": "#0E0E10"
       },
       "permissions": [
         "android.permission.CAMERA",
@@ -31,16 +27,20 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "GadPortfolio needs access to your photos so you can set a profile picture.",
-          "cameraPermission": "GadPortfolio needs camera access so you can take a profile picture."
+          "photosPermission": "GadPortfolio needs access to your photos so you can set a profile picture or add a photo to your gallery.",
+          "cameraPermission": "GadPortfolio needs camera access so you can take a profile picture or add a photo to your gallery."
         }
       ],
-      "expo-font",
-      "expo-splash-screen"
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0E0E10"
+        }
+      ]
     ],
     "extra": {
       "eas": {
-        "projectId": "REPLACE_WITH_YOUR_PROJECT_ID"
+        "projectId": "18f6bd54-6730-4d11-a2c0-07db878db8e0"
       }
     }
   }

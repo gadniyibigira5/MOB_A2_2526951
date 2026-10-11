@@ -6,7 +6,6 @@ export type TabParamList = {
   Projects: undefined;
   Photography: undefined;
   Profile: undefined;
-  About: undefined;
 };
 
 export type RootStackParamList = {
