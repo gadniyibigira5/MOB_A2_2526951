@@ -83,15 +83,15 @@ MOB_A2_2526951/
 
 ## Final commit hash
 
-REPLACE_AFTER_FINAL_COMMIT
+[REPLACE_AT_THE_VERY_END_SEE_BELOW]
 
 ## Release link
 
-REPLACE_AFTER_CREATING_GITHUB_RELEASE
+https://github.com/gadniyibigira5/MOB_A2_2526951/releases/tag/v1.0.0
 
 ## APK download link
 
-REPLACE_AFTER_DOWNLOADING_APK_FROM_EAS
+https://github.com/gadniyibigira5/MOB_A2_2526951/releases/download/v1.0.0/MOB_A2_2526951.apk
 
 ## Known limitations
 
