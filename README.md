@@ -95,9 +95,9 @@ REPLACE_AFTER_DOWNLOADING_APK_FROM_EAS
 
 ## Known limitations
 
+- The demonstration video runs to 2 minutes and 4 seconds, which is four seconds over the two-minute guideline stated in the assignment. All required demonstration steps are present in one continuous, unedited clip.
 - The image picker and camera do not work in the web preview. This is a platform limitation of React Native Web. All image features work on the installed Android APK.
 - The app is distributed as a direct APK, not through the Google Play Store, as required by the assignment.
-
 ## Data use statement
 
 GadPortfolio stores your profile text, skills, photos, and categories only on this device, using AsyncStorage and the app's local document directory. Nothing is uploaded to a server. Removing a photo, skill, or profile image deletes that data from this device. The app works offline; no network connection is required for any core feature.
